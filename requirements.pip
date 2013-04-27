@@ -1,1 +1,2 @@
 Django
+-e svn+http://django-tagging.googlecode.com/svn/trunk/#egg=django-tagging

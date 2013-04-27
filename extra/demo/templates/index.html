@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block header %}{{ block.super }}Homepage{% endblock %}
+
+{% block content %}
+<p>{% trans "The demo site shows a Diary implemented with django-sample-app." %}</p>
+<ul>
+  <li><a href="{% url 'diary' %}">{% trans "Read the diary" %}</a></li>
+</ul>
+<p style="padding: 5px 15px; background:#ddd; font-weight:bold; text-align:right">django-sample-app</p>
+{% endblock %}
