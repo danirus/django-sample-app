@@ -5,11 +5,9 @@ from django.db.models import permalink
 from django.utils.timezone import now
 from django.utils.translation import ugettext, ugettext_lazy as _
 
-from tagging.fields import TagField
-
 
 class DiaryDay(models.Model):
-    pub_date = models.DateField(default=now)
+    pub_date = models.DateField(unique=True, default=now)
 
     class Meta:
         verbose_name = _("diary day entry")
@@ -18,7 +16,7 @@ class DiaryDay(models.Model):
         get_latest_by = "pub_date"
 
     def __unicode__(self):
-        return self.pub_date
+        return self.pub_date.isoformat()
 
     @permalink
     def get_absolute_url(self):
@@ -33,12 +31,11 @@ class DiaryDayEntry(models.Model):
     """A day in the dairy can have multiple entries per day"""
     diaryday = models.ForeignKey(DiaryDay, related_name="entries")
     body = models.TextField()
-    tags = TagField()
 
     class Meta:
         verbose_name = _("day entry")
         verbose_name_plural = _("day entries")
-        ordering = ("-id",)
+        ordering = ("id",)
 
     def __unicode__(self):
         return self.diaryday.pub_date.strftime(

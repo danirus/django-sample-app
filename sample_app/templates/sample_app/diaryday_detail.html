@@ -1,0 +1,21 @@
+{% load url from future %}
+
+<h3>DiaryDay: {{ object }}</h3>
+
+<ul>
+  {% for entry in entries %}
+  <li>{{ entry.body|safe }}</li>
+  {% endfor %}
+</ul>
+
+<p>
+  {% if previous_day %}
+  <a href="{% url 'diaryday' previous_day|date:'Y' previous_day|date:'b' previous_day|date:'d' %}" title="{{ previous_day|date:'D, j F Y' }}">previous</a>
+  {% else %}
+  <span style="color:lightgray">previous</span>
+  {% endif %}&nbsp;<span style="color:gray">|</span>&nbsp;{% if next_day %}
+  <a href="{% url 'diaryday' next_day|date:'Y' next_day|date:'b' next_day|date:'d' %}" title="{{ next_day|date:'D, j F Y' }}">next</a>
+  {% else %}
+  <span style="color:lightgray">next</span>
+{% endif %}
+</p>
