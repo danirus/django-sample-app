@@ -1,5 +1,5 @@
 import sys
-from setuptools import setup, find_packages
+from setuptools import setup
 from setuptools.command.test import test
 
 def run_tests(*args):
@@ -15,7 +15,7 @@ test.run_tests = run_tests
 setup(
     name = "django-sample-app",
     version = "0.1",
-    packages = find_packages(),
+    packages = ['sample_app', 'sample_app.tests'],
     license = "BSD",
     description = "A Django sample app, with setup, unittests, docs and demo site.",
     long_description = "A simple pluggable Django app that does nothing special but to serve as a sample layout for another Django apps. It offers a simple arithmetic calculator. Read the docs to know more.",
