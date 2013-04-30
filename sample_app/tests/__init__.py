@@ -41,9 +41,11 @@ def suite():
         settings.INSTALLED_APPS = settings.INSTALLED_APPS + ['sample_app.tests',]
         map(load_app, settings.INSTALLED_APPS)
 
-    from sample_app.tests import (views_tests)
+    from sample_app.tests import conf_tests, models_tests, views_tests
 
     testsuite = unittest.TestSuite([
+        unittest.TestLoader().loadTestsFromModule(conf_tests),
+        unittest.TestLoader().loadTestsFromModule(models_tests),
         unittest.TestLoader().loadTestsFromModule(views_tests),
     ])
     return testsuite

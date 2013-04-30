@@ -3,6 +3,8 @@
 import datetime
 
 from django.core.urlresolvers import reverse
+from django.http import Http404
+from django.utils.translation import ugettext as _
 from django.views.generic import RedirectView
 from django.views.generic.dates import DateDetailView
 
@@ -34,15 +36,18 @@ class DiaryDayView(DateDetailView):
             return DiaryDay.objects.get(pub_date=self.date)
         except ValueError:
             raise Http404(_("Invalid date string '%(date_string)s' given"
-                            " format '%(date_format)'") 
+                            " format '%(date_format)s'") 
                           % {'date_string': date_string, 
                              'date_format': date_format})
+        except DiaryDay.DoesNotExist:
+            raise Http404(_("DiaryDay doesn't exist"))
 
     def get_context_data(self, **kwargs):
         context = super(DiaryDayView, self).get_context_data(**kwargs)
         qs = self.object.entries.all()
         context.update({
             'entries': qs,
+            'date': self.date,
             'previous_day': self.get_previous_day(self.date),
             'next_day': self.get_next_day(self.date),
         })

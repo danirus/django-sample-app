@@ -1,0 +1,48 @@
+[
+{
+    "pk": 1, 
+    "model": "sample_app.diaryday", 
+    "fields": {
+        "pub_date": "1959-09-13"
+    }
+},
+{
+    "pk": 2, 
+    "model": "sample_app.diaryday", 
+    "fields": {
+        "pub_date": "1969-07-20"
+    }
+},
+{
+    "pk": 1, 
+    "model": "sample_app.diarydayentry", 
+    "fields": {
+        "body": "Today the first human-made object has reach the surface of the Moon, as part of the Soviet Union's Luna 2 mission.", 
+        "diaryday": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "sample_app.diarydayentry", 
+    "fields": {
+        "body": "Today the United States' Apollo 11 has been the first manned mission to land on the Moon. The event is being broadcast world wide.", 
+        "diaryday": 2
+    }
+},
+{
+    "pk": 4, 
+    "model": "sample_app.diarydayentry", 
+    "fields": {
+        "body": "Neil Armstrong is being the first man to step onto the lunar surface. He just said '<i>One small step for a man, one giant leap for mankind</i>'.", 
+        "diaryday": 2
+    }
+},
+{
+    "pk": 5, 
+    "model": "sample_app.diarydayentry", 
+    "fields": {
+        "body": "Now Buzz Aldrin is following Armstrong's steps. Both are about to collect some lunar material. Michael Collins is waiting for them in lunar orbit.", 
+        "diaryday": 2
+    }
+}
+]
