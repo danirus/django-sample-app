@@ -40,24 +40,11 @@ def run_tests():
     return test_suite.run_tests(["sample_app"])
     
 
-def delete_tmp_dirs():
-    from django.conf import settings
-    try:
-        shutil.rmtree(os.path.join(settings.MEDIA_ROOT, 'pictures'))
-        shutil.rmtree(os.path.join(settings.MEDIA_ROOT, 'cache'))
-    except OSError, e:
-        if e.errno != 2:
-            raise e
-
-
 def suite():
     if not os.environ.get("DJANGO_SETTINGS_MODULE", False):
         setup_django_settings()
     else:
-        from django.db.models.loading import load_app
         from django.conf import settings
-        settings.INSTALLED_APPS = settings.INSTALLED_APPS + ['sample_app.tests',]
-        map(load_app, settings.INSTALLED_APPS)
 
     from sample_app.tests import conf_tests, models_tests, views_tests
 

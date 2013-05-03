@@ -26,6 +26,7 @@ Run the demo project to see django-sample-app in action.
    tutorial
    settings
    templates
+   changelog
 
 .. index::
    pair: Quick; Start
@@ -33,7 +34,13 @@ Run the demo project to see django-sample-app in action.
 Quick start
 ===========
 
-1. Edit the ``settings.py`` module and add ``sample_app`` to ``INSTALLED_APPS``
+1. Edit the ``settings.py`` module and add ``sample_app`` to ``INSTALLED_APPS``::
+
+    ...
+    INSTALLED_APPS = (
+        ...
+        'sample_app',
+    )
 
 2. Edit the ``urls.py`` module and include django-sample-app's URLs::
 

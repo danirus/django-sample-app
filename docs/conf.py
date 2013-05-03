@@ -13,6 +13,11 @@
 
 import sys, os
 
+venv_path = os.path.abspath(os.path.join('..', '..'))
+activate_this = os.path.join(venv_path, 'bin/activate_this.py')
+execfile(activate_this, dict(__file__=activate_this))
+sys.path.insert(0, os.path.abspath(os.path.pardir))
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -219,6 +224,11 @@ man_pages = [
 
 # If true, show URL addresses after external links.
 #man_show_urls = False
+
+# -- Options for autodoc--------------------------------------------------------
+autodoc_member_order = 'bysource'
+autodoc_default_flags = ['members', 'undoc-members']
+
 
 
 # -- Options for Texinfo output ------------------------------------------------

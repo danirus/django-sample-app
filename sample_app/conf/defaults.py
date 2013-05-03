@@ -18,4 +18,6 @@
 
 # Define here settings for the app
 
+#: URL's name to redirect when the Diary is empty. If None it will redirect
+#: to '/'.
 SAMPLE_APP_REDIRECT_TO_URL_NAME = None
