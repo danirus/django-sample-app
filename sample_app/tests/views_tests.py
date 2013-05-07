@@ -31,7 +31,8 @@ class EmptyDiaryRedirectViewTestCase(DjangoTestCase):
         response = self.client.get(reverse('diary'))
         self.assert_(response.status_code == 302)
         response = self.client.get(reverse('diary'), follow=True)
-        self.assert_(response.content == render_to_string("home.html"))
+        self.assertContains(response, render_to_string("home.html"), 
+                            status_code=200)
 
 
 class DiaryRedirectViewTestCase(DjangoTestCase):
