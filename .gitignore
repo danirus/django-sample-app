@@ -4,6 +4,7 @@
 *.pyc
 *.zip
 *.egg-info
+.coverage
 docs/_build
 build/
 dist/
