@@ -46,12 +46,14 @@ def suite():
     else:
         from django.conf import settings
 
-    from sample_app.tests import conf_tests, models_tests, views_tests
+    from sample_app.tests import (conf_tests, models_tests, views_tests,
+                                  utils_tests)
 
     testsuite = unittest.TestSuite([
         unittest.TestLoader().loadTestsFromModule(conf_tests),
         unittest.TestLoader().loadTestsFromModule(models_tests),
         unittest.TestLoader().loadTestsFromModule(views_tests),
+        unittest.TestLoader().loadTestsFromModule(utils_tests),
     ])
     return testsuite
 
