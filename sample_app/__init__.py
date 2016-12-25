@@ -27,3 +27,6 @@ def get_version():
     if VERSION[3] != 'f':
         version = '%s%s%s' % (version, VERSION[3], VERSION[4])
     return version
+
+
+default_app_config = 'sample_app.apps.SampleAppConfig'

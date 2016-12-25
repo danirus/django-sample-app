@@ -17,8 +17,12 @@ setup(
     version = "0.1",
     packages = ['sample_app', 'sample_app.tests'],
     license = "BSD",
-    description = "A Django sample app, with setup, unittests, docs and demo site.",
-    long_description = "A simple pluggable Django app that does nothing special but to serve as a sample layout for another Django apps. It offers a simple arithmetic calculator. Read the docs to know more.",
+    description = ("A Django sample app, with setup, unittests, docs and "
+                   "demo site."),
+    long_description = ("A simple pluggable Django app that does nothing "
+                        "special but to serve as a sample layout for another "
+                        "Django apps. It offers a simple arithmetic "
+                        "calculator. Read the docs to know more."),
     author = "Daniel Rus Morales",
     author_email = "mbox@danir.us",
     maintainer = "Daniel Rus Morales",
