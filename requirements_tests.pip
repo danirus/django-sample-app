@@ -1,3 +1,4 @@
 -r requirements.pip
 coverage
+# Mock is only required for Python 2.7.
 mock

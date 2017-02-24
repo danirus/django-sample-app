@@ -5,6 +5,8 @@
 *.zip
 *.egg-info
 .coverage
+.tox
+.cache
 docs/_build
 build/
 dist/

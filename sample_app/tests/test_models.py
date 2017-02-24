@@ -20,6 +20,7 @@ from django.test import TestCase as DjangoTestCase
 
 from sample_app.models import DiaryDay
 
+
 class DiaryDayEntryTestCase(DjangoTestCase):
     fixtures = ['testing_data']
 

@@ -1,6 +1,7 @@
-#-*- coding: utf-8 -*-
-
 import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -15,10 +16,6 @@ DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.sqlite3', 
         'NAME':     'django_sample_app_test',
-        'USER':     '', 
-        'PASSWORD': '', 
-        'HOST':     '', 
-        'PORT':     '',
     }
 }
 
@@ -27,7 +24,7 @@ DATABASES = {
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Europe/Brussels'
+TIME_ZONE = 'Europe/Berlin'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -52,11 +49,6 @@ STATIC_URL = '/static/'
 
 SECRET_KEY = 'v2824l&2-n+4zznbsk9c-ap5i)b3e8b+%*a=dxqlahm^%)68jn'
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -66,10 +58,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'sample_app.tests.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    # os.path.join(os.path.dirname(__file__), "..", "templates"),
     os.path.join(os.path.dirname(__file__), 'templates'),
 )
 
@@ -80,6 +68,18 @@ INSTALLED_APPS = [
 
     'sample_app',
     'sample_app.tests',
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates'),],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+            ],
+        },
+    },
 ]
 
 SAMPLE_APP_REDIRECT_TO_URL_NAME = 'home'

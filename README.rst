@@ -3,6 +3,11 @@ Django-sample-app
 
 Django-sample-app is a simple app that serves as an example of a generic reusable Django application. The actual code of the app implements a sample diary application with tests, demo project and documentation.
 
+It runs under officially Django `supported versions <https://www.djangoproject.com/download/#supported-versions>`_:
+
+* Django 1.8, Django 1.9 and Django 1.10
+* Python 2.7 and Python 3 (3.2, 3.4, 3.5, 3.6)
+
 This tutorial passes through all the steps to build the app, while the rest of the documentation addresses the sample diary.
 
 Before reading this tutorial visit the official Django project website and read the tutorial on `how to write reusable apps <https://docs.djangoproject.com/en/1.5/intro/reusable-apps/>`_. This document serves as an extension.

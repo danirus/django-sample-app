@@ -17,7 +17,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-import shutil
 import sys
 import unittest
 
@@ -36,32 +35,7 @@ def run_tests():
     from django.conf import settings
     from django.test.utils import get_runner
 
-    if django.VERSION[:2] >= (1, 7):
-        django.setup()
-        runner = get_runner(settings,"django.test.runner.DiscoverRunner")
-    else:
-        runner = get_runner(settings,"django.test.simple.DjangoTestSuiteRunner")
+    django.setup()
+    runner = get_runner(settings,"django.test.runner.DiscoverRunner")
     test_suite = runner(verbosity=2, interactive=True, failfast=False)
     return test_suite.run_tests(["sample_app"])
-    
-
-# def suite():
-#     if not os.environ.get("DJANGO_SETTINGS_MODULE", False):
-#         setup_django_settings()
-#     else:
-#         from django.conf import settings
-
-#     from sample_app.tests import (conf_tests, models_tests, views_tests,
-#                                   utils_tests)
-
-#     testsuite = unittest.TestSuite([
-#         unittest.TestLoader().loadTestsFromModule(conf_tests),
-#         unittest.TestLoader().loadTestsFromModule(models_tests),
-#         unittest.TestLoader().loadTestsFromModule(views_tests),
-#         unittest.TestLoader().loadTestsFromModule(utils_tests),
-#     ])
-#     return testsuite
-
-
-if __name__ == "__main__":
-    run_tests()

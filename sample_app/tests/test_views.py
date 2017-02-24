@@ -86,4 +86,3 @@ class DiaryDayViewTestCase(DjangoTestCase):
             reverse('diaryday', 
                     kwargs={'year': 1969, 'month': 'jul', 'day':99}))
         self.assert_(response.status_code == 404)
-
